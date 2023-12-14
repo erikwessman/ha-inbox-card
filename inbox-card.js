@@ -51,7 +51,7 @@ class InboxCard extends LitElement {
     return html`
       <div>
         ${Object.values(this.hass.states).map((state) => {
-          if (state.attributes["Type"] && (this.selectedOption === 'all' || state.state === this.selectedOption)) {
+          if (state.attributes["Type"] === "conversation" && (this.selectedOption === 'all' || state.state === this.selectedOption)) {
             const icon = state.attributes["icon"]
             const sender = state.attributes["Initial Sender"]
             const content = state.attributes["friendly_name"]
